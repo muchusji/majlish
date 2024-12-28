@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majlish Group</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            height: 120px;
+            border-radius: 50%;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .marquee {
+            color: black;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            animation: marquee-scroll 10s linear infinite;
+        }
+
+        @keyframes marquee-scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .home {
+            position: relative;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        .home img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: scroll 20s infinite linear;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .home-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .home-text h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .home-text p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .home-text button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff7e5f;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .home-text button:hover {
+            background-color: #feb47b;
+        }
+
+        .about {
+            display: flex;
+            padding: 50px 20px;
+            gap: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .about img {
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ff7e5f;
+        }
+
+        .about p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .extra-section {
+            display: flex;
+            padding: 50px 20px;
+            gap: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .extra-section img {
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .extra-section-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .extra-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #43cea2;
+        }
+
+        .extra-section p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .gallery {
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .gallery h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #6a11cb;
+        }
+
+        .gallery img {
+            width: 30%;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact {
+            padding: 50px 20px;
+            text-align: center;
+            background: linear-gradient(to top, #43cea2, #185a9d);
+            color: white;
+        }
+
+        .contact h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact form input, .contact form textarea {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact form button {
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #feb47b;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact form button:hover {
+            background-color: #ff7e5f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: white;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Majlish Group Logo">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Member</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="marquee">
+        Welcome to Majlish Group - Powered by MUCHUS!
+    </div>
+
+    <section id="home" class="home">
+         
+        <div class="home-text">
+            <h1>Majlish Group</h1>
+            <p>Majlish app sab ka welcome karta hai.</p>
+            <p>Ham sabhi ka maksad ek hi hi (chin tapak Dam Dam nahi),hum savi dur rahkar bhi ek sath rahe. ye digital jabane me sab ek dusre se connect ho kar rahe.</p>
+            <button onclick="location.href='#about'">Learn More</button>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <img src="about-image.jpg" alt="About Majlish Group">
+        <div class="about-content">
+            <h2>Muchus(Ravi ji)</h2>
+            <p>My name is muchus & i am organiser of majlish group. i have to decided to organise a group, after some discusion we name that group is "MAJLISH" .</p>
+        </div>
+    </section>
+
+    <section id="extra-section" class="extra-section">
+        <img src="extra-image.jpg" alt="Extra Section Image">
+        <div class="extra-section-content">
+            <h2>Our Mission</h2>
+            <p>Hamara  mission sabhi dost log ko ek sath jod kar rakhna hai , chahe hum sabhi gaon me ho ya gaon se dur. jab hmlog gaon me hote hai to hum sabhi apne office me ek sath milte hai ,or sabhi tarah ki baten hoti hai.hamara location hamara office hi hota hai. jab bhi kisi member ko koi nhi milta hai to vo sidha office chala ata hai or majlish ko join karta hai. .</p>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2>Gallery</h2>
+        <img src="gallery1.jpg" alt="Gallery Image 1">
+        <img src="gallery2.jpg" alt="Gallery Image 2">
+        <img src="gallery3.jpg" alt="Gallery Image 3">
+        <img src="gallery4.jpg" alt="Gallery Image 4">
+        <img src="gallery5.jpg" alt="Gallery Image 5">
+        <img src="gallery6.jpg" alt="Gallery Image 6">
+        <img src="gallery7.jpg" alt="Gallery Image 7">
+        <img src="gallery8.jpg" alt="Gallery Image 8">
+        <img src="gallery9.jpg" alt="Gallery Image 9">
+        <img src="gallery10.jpg" alt="Gallery Image 10">
+        <img src="gallery11.jpg" alt="Gallery Image 11">
+        <img src="gallery12.jpg" alt="Gallery Image 12">
+        <img src="gallery13.jpg" alt="Gallery Image 13">
+        <img src="gallery14.jpg" alt="Gallery Image 14">
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Majlish Group. powered by MUCHUS.</p>
+    </footer>
+</body>
+</html>
+
+
